@@ -1,0 +1,19 @@
+<view class="content">
+  <view class="title">{{res_activity[id].title}}</view>
+  <view class="time">{{res_activity[id].posttime}}</view>
+  <view class="view">👁{{res_activity[id].viewVol+1}}</view>
+  <view class="detail">
+    <view class="line"></view>
+    <view class="pic">
+      <image wx:if='{{res_activity[id].img[0]}}' bindtap="chooseImg" class='photo' src='{{res_activity[id].img[0]}}'></image>
+  </view>
+  <view class="text">{{res_activity[id].content}}</view>
+  <view wx:for="{{res_activity[id].img}}">
+    <view wx:if="{{index==0}}"></view>
+    <view wx:else class="pic">
+      <image wx:if='{{res_activity[id].img[index]}}' bindtap="chooseImg" class='photo' src='{{res_activity[id].img[index]}}'></image>
+    </view>
+  </view>
+  </view>
+</view>
+
