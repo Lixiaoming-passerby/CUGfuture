@@ -1,0 +1,30 @@
+<!--pages/myindex/myindex.wxml-->
+<view class="content">
+  <view class="hr"></view>
+  <view class="mylogo">
+  <image src="/logo/地大未来.png" style="width:100px;height:100px;"></image>
+  </view>
+  <view class="hr2"></view>
+    <form bindsubmit="formSubmit" bindreset="formRest">
+    <view class="bg">
+      <view class="line"></view>
+      <view class="item">
+        <view class="name">账户</view>
+        <view class="value">
+    <input placeholder="账号" name="name"></input>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="item">
+        <view class="name">密码</view>
+        <view class="value">
+    <input placeholder="请输入密码" name="password" password></input>
+        </view>
+    </view>
+    </view>
+    <view class="line"></view>
+    <button bindtap="goto_index" id="btn1" form-type="submit" class="btn">登录</button>
+  </form>
+  <view class="hr3"></view>
+  <navigator class="miao" url="/pages/register/register">注 册 账 号</navigator>
+</view>
