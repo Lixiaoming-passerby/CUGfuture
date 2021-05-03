@@ -1,0 +1,51 @@
+<!--pages/home/home.wxml-->
+<view>
+  <view class="sp">
+    <swiper indicator-dots autoplay indicator-color="#fff" circular previous-margin="20px" next-margin="20px" interval="3000">
+      <swiper-item class="spitem" wx:for="{{activity}}">
+        <image src="{{activity[index].pic}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="hr" ></view>
+  <view class="mylogo">
+    <image src="/pic/miaomiao.jpg" bindtap="gotonews"></image>
+    <image src="/pic/miaomiao.jpg" bindtap="gotoclass"></image>
+    <image src="/pic/miaomiao.jpg" bindtap="gotomaps"></image>
+    <image src="/pic/miaomiao.jpg" bindtap="gotofound"></image>
+  </view>
+  <view class="text">
+    <view class="stext2" bindtap="gotonews">地大新闻</view>
+    <view class="stext" bindtap="gotoclass">教室查询</view>
+    <view class="stext" bindtap="gotomaps">掌上地图</view>
+    <view class="stext" bindtap="gotofound">失物招领</view>
+  </view>
+  <view class="hr" ></view>
+  <view class="line"></view>
+  <view class="activity">
+    <view class="title">近期活动</view>
+    <view class="out">
+      <view class="row" wx:for="{{res_activity}}">
+        <view class="pic">
+          <image wx:if='{{item.img[0]}}' bindtap="chooseImg" class='photo' src='{{item.img[0]}}'></image>
+        </view>
+        <view class="act_text">
+          <navigator url='/pages/act_detail/act_detail?act_id={{index}}'>
+            <view class="act_mark">
+          <view class="act_title">{{item.title}}</view>
+          <view wx:if="{{item.state=='进行中'}}" class="now">·进行中</view>
+          <view wx:if="{{item.state=='已结束'}}" class="over">·已结束</view>
+          <view wx:if="{{item.state=='未开始'}}" class="begin">·未开始</view>
+            </view>
+          </navigator>
+          <view class="act_mark">
+          <view class="act_time">{{item.startTime}}</view>
+          <view class="act_looking">👁{{item.viewVol}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+</view>

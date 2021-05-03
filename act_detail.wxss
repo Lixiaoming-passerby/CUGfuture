@@ -1,0 +1,54 @@
+/* pages/act_detail/act_detail.wxss */
+.title{
+  padding-top:10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-size: 20px;
+  color: #ab556c;
+  font-size: 36rpx;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.line{
+  border:1px dashed #0e01014f;
+  opacity: 0.4;
+}
+
+.detail{
+  width:100%;
+}
+
+.pic{
+  padding-top: 5px;
+  height:200px;
+  width:100%;
+}
+
+.pic image{
+  height:100%;
+  width:100%;
+}
+
+.view{
+  padding-right: 15px;
+  text-align: right;
+  color:#999;
+}
+.time{
+  padding-right: 15px;
+  text-align: center;
+  color:#999;
+}
+
+.text{
+  white-space: pre-wrap;
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+}
