@@ -1,0 +1,21 @@
+<view class="activity">
+    <view class="title">地大新闻</view>
+    <view class="out">
+      <view class="row" wx:for="{{res_activity}}">
+        <view class="pic" >
+          <image wx:if='{{item.img[0]}}' bindtap="chooseImg" class='photo' src='{{item.img[0]}}'></image>
+        </view>
+        <view class="act_text">
+          <navigator url='/pages/act_detail/act_detail?act_id={{index}}'>
+          <view class="act_title">{{item.title}}</view>
+          </navigator>
+          <view class="act_mark">
+          <view class="act_time">{{item.newsTime}}</view>
+          <view class="act_looking">浏览量：{{item.viewVol}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
