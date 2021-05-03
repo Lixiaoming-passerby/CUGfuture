@@ -1,0 +1,17 @@
+<!--pages/maps/maps.wxml-->
+<view class="map_container">
+  <map  id="map" class='map' longitude='{{longitude}}' latitude='{{latitude}}' scale='{{scale}}' show-location show-compass enable-scroll>
+</map>
+</view>
+<view>当前位置信息：</view>
+<view class="loc">
+  <view class="locx">经度：{{longitude}}</view>
+  <view class="locy">维度：{{latitude}}</view>
+</view>
+<view class="hr"></view>
+<button bindtap="back">回到当前位置</button>
+<view class="hr"></view>
+<button bindtap="update">更新位置信息</button>
+ 
+
+
