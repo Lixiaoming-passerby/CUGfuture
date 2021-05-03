@@ -1,0 +1,48 @@
+<view class="activity">
+  <view class="title">失物招领</view>
+  </view>
+  <view class="tar">
+    <view class="{{flag==0?'tar_lost':'tar_found'}}" id="0" bindtap="get_tar">丢失信息</view>
+    <view class="{{flag==1?'tar_lost':'tar_found'}}" id="1" bindtap="get_tar">拾取信息</view>
+  </view>
+  <view class="blank"></view>
+  <form bindsubmit="formSubmit" bindreset="formRest">
+  <view class='page_row'>  
+      <view class="search">  
+        <view class="df search_arr">  
+          <icon class="searchcion" size='20' type='search'></icon>  
+          <input name="keyword" placeholder="请输入关键字"/>  
+        </view>  
+      </view>  
+      <button class="sousuo"style="width: 25%;line-height: 85%;margin-left: 15rpx;" id="1" form-type="submit">搜索</button>  
+    </view>  
+    </form>
+    <swiper current="{{flag}}" style="height:1000px">
+      <swiper-item>
+        <view wx:for="{{res_activity}}">
+          <view class="item" wx:if="{{res_activity[index].state==0}}" id="{{index}}" name="{{flag}}" bindtap="goto_detail">
+            <view class="des">
+            <view class="name">名称：{{res_activity[index].title}}</view>
+            <view class="time">丢失时间：{{res_activity[index].st_time}}</view>
+            </view>
+            <view class="img">
+              <image src="{{res_activity[index].img[0]}}"></image>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view wx:for="{{res_activity}}">
+          <view class="item" wx:if="{{res_activity[index].state==1}}" id="{{index}}" bindtap="goto_detail">
+            <view class="des">
+            <view class="name">名称：{{res_activity[index].title}}</view>
+            <view class="time">拾取时间：{{res_activity[index].st_time}}</view>
+            </view>
+            <view class="img">
+              <image src="{{res_activity[index].img[0]}}"></image>
+            </view>
+          </view>
+
+        </view>
+      </swiper-item>
+    </swiper>

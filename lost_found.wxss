@@ -1,0 +1,119 @@
+/* pages/lost_found/lost_found.wxss */
+.title{
+  padding-top: 8px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  color: #f2fafa;
+  font-size: 36rpx;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background-color: rgba(61, 187, 236, 0.767);
+}
+.blank{
+  height:5px;
+}
+.tar{
+  height:40px;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+}
+.tar_lost{
+  font-weight: 550;
+  padding-left: 5px;
+  padding-right: 5px;
+  border:1px solid #c0ddddc0;
+  background: #eaf55259;
+  display: flex;
+  flex:5;
+  height:100%;
+  justify-content: center;
+  align-items:center;
+}
+
+.tar_found{
+  padding-left: 5px;
+  padding-right: 5px;
+  border:1px solid #c0ddddc0;
+  background: #eaf55259;
+  display: flex;
+  flex:5;
+  height:100%;
+  justify-content: center;
+  align-items:center;
+}
+.search{  
+  width: 80%;  
+}  
+.search_arr {  
+  border: 1px solid #d0d0d0;  
+  border-radius: 10rpx;  
+  margin-left: 20rpx;  
+}  
+.search_arr input{  
+  margin-left: 60rpx;  
+  height: 60rpx;  
+  border-radius: 5px;  
+}  
+.bc_text {  
+  line-height: 68rpx;  
+  height: 68rpx;  
+  margin-top: 34rpx;  
+}  
+  
+.sousuo {  
+  text-align: center;  
+  border: 1px solid #d0d0d0;  
+  border-radius: 10rpx;  
+  color:rgb(248, 244, 244);
+  background-color:rgba(110, 112, 238, 0.87);
+}  
+.page_row{  
+  display: flex;  
+  flex-direction: row  
+}  
+.searchcion {  
+  margin: 10rpx 10rpx 10rpx 10rpx;  
+  position: absolute;  
+  left:25rpx;  
+  z-index: 2;  
+  width: 20px;  
+  height: 20px;  
+  text-align: center;  
+}  
+.item{
+  display:flex;
+  width:100%;
+  height:200rpx;
+  background-color: #f2fafa;
+  border: 1px solid #d0d0d0;  
+}
+
+.des{
+  flex:7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+}
+.name{
+  padding-top: 20px;
+  font-size: 34rpx;
+  font-weight: 550;
+}
+.time{
+  padding-bottom: 20px;
+  font-size: 34rpx;
+  font-weight: 550;
+}
+.img{
+  flex:3;
+  height:200rpx;
+}
+
+.img image{
+  height:100%;
+  width:100%;
+}

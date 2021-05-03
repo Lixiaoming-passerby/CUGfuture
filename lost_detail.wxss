@@ -1,0 +1,54 @@
+/* pages/lost_detail/lost_detail.wxss */
+.title{
+  padding-top:10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: left;
+  align-items:center;
+  font-size: 20px;
+  font-size: 36rpx;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.line{
+  border:1px dashed #0e01014f;
+  opacity: 0.4;
+}
+
+.detail{
+  width:100%;
+}
+
+.pic{
+  padding-top: 5px;
+  height:200px;
+  width:100%;
+}
+
+.pic image{
+  height:100%;
+  width:100%;
+}
+
+.view{
+  padding-right: 15px;
+  text-align: right;
+  color:#999;
+}
+.time{
+  text-align: left;
+  color:rgb(22, 21, 21);
+}
+.notice{
+  text-align: center;
+  color:rgb(22, 21, 21);
+}
+.text{
+  white-space: pre-wrap;
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+}
