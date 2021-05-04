@@ -1,0 +1,10 @@
+<!--pages/service/service.wxml-->
+<view class='img'>
+  <image src="/pic/dida.png">
+  </image>
+</view>
+<view class="hr"></view>
+  <view class="text">亲爱的用户，地大Future的客服工作时间为10：00AM-20：00PM,如果您在使用过程中遇到了任何问题，或
+  者有什么需要帮助的，请在该时间段联系客服，我们将以最快的速度给您答复。</view>
+  <view class="hr"></view>
+  <button open-type="contact">进入客服会话</button>

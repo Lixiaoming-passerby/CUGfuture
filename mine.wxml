@@ -1,0 +1,67 @@
+<!--pages/mine/mine.wxml-->
+<view class="all">
+  <view class="bg">
+    <view class="head">
+    <view class="headIcon">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+     <view class="login">
+      <open-data type="userNickName"></open-data>
+    </view>
+    </view>
+  </view>
+    <view class="hr2"></view>
+    <view class="line"></view>
+    <view class="mine" bindtap="gotocollect">
+      <view class="mine_pic">
+      <image src="/pic/123.png"></image>
+      </view>
+      <view class="mine_text">我的收藏</view>
+      <view class="mine_right">
+        <image src="/pic/right.png"></image>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="mine" bindtap="gotopublish">
+      <view class="mine_pic">
+      <image src="/pic/fabiao.png"></image>
+      </view>
+      <view class="mine_text">我的发表</view>
+      <view class="mine_right">
+        <image src="/pic/right.png"></image>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="mine" bindtap="gotomanager">
+      <view class="mine_pic">
+      <image src="/pic/234.png"></image>
+      </view>
+      <view class="mine_text">账号管理</view>
+      <view class="mine_right">
+        <image src="/pic/right.png"></image>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="mine" bindtap="gotoset">
+      <view class="mine_pic">
+      <image src="/pic/shezhi.png"></image>
+      </view>
+      <view class="mine_text">相关设置</view>
+      <view class="mine_right">
+        <image src="/pic/right.png"></image>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="mine" bindtap="gotoservice">
+      <view class="mine_pic">
+      <image src="/pic/kefu.png"></image>
+      </view>
+      <view class="mine_text">联系客服</view>
+      <view class="mine_right">
+        <image src="/pic/right.png"></image>
+      </view>
+    </view>
+    <view class="line"></view>
+  
+ 
+</view>
