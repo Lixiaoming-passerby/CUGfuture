@@ -1,6 +1,6 @@
 <view class="content">
   <view class="title">失物名称：{{res_activity[id].title}}</view>
-  <view class="title" wx:if="{{state>1600}}">遗失时间：{{res_activity[id].st_time}}</view>
+  <view class="title" wx:if="{{id==0}}">遗失时间：{{res_activity[id].st_time}}</view>
   <view class="title" wx:else>拾取时间：{{res_activity[id].st_time}}</view>
   <view class="detail">
     <view class="text">{{res_activity[id].content}}</view>

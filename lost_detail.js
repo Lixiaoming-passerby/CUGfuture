@@ -20,9 +20,10 @@ Page({
       url:'https://172.20.10.5:443/weixin/Lost',
       data:{},
       success:res=>{
+        console.log(res)
         this.setData({
           res_activity:res.data,
-          state:res.data[options.lost_id].id
+          //state:options.currentTarget.id
         })
       }
     })

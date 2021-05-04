@@ -25,8 +25,9 @@ Page({
     })
   },
   formSubmit(e) {
+    console.log(e)
   wx.request({
-    url: "https://172.20.10.5:443/weixin/Login?keyword=" + "%"+e.detail.value["keyword"]+"%",
+    url: "https://172.20.10.5:443/weixin/SearchLost?keyword=" + "%"+e.detail.value["keyword"]+"%"+ "&" + "state=" +this.data.flag,
     //url地址为后端代码的位置需修改
     data: e.detail.value,
     success: this.getResult.bind(this)
@@ -43,6 +44,7 @@ getResult: function (res){
       duration: 2000
     })
     }
+    this.onShow()
 },
 
   /**
