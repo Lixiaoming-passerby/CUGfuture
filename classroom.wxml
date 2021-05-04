@@ -1,0 +1,42 @@
+<view>
+  <button bindtap="choose_class">筛选教室</button>
+  <view wx:if="{{out}}">
+    <view class="hr"></view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px">{{item}}周</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{begins}}" style="line-height: 50px">from {{item}}节</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{ends}}" style="line-height: 50px">to {{item}}节</view>
+    </picker-view-column>
+  </picker-view>
+  <view class="hr"></view>
+  <button bindtap="choose_class2">确认</button>
+  </view>
+  <view class="mytext">您筛选的教室为:</view>
+  <view class="choosed">{{year}}-{{month}}周-{{day}}从第{{begin}}节到第{{end}}节</view>
+  <button bindtap="submit">查询</button>
+  <view class="list" wx:for="{{emptyroom}}">
+    <view class="list_item" wx:if="{{index==0}}">
+  <view class="type">教室名称</view>
+  <view class="type">座位数</view>
+  <view class="type">使用情况</view>
+  </view>
+  <view class="list_item" >
+    <view class="type">{{item.type}}</view>
+  <view class="type">{{item.seatnum}}</view>
+  <view class="type">{{item.used}}</view>
+  </view>
+  </view>
+  </view>
+
+

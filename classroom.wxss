@@ -1,0 +1,49 @@
+/* pages/classroom/classroom.wxss */
+.item{
+  display:flex;
+  flex-direction: row;
+  height:50px;
+  line-height: 60px;
+  align-items: center;
+}
+
+.name{
+  width: 20%;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.value{
+  width:80%;
+  line-height: 60px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.line{
+  border:1px solid #cccccc;
+  opacity: 0.2;
+}
+.hr{
+  height: 30px;
+}
+.choosed{
+  color:#dd2e8e;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+}
+.mytext{
+  text-align: center;
+}
+.list_item{
+  display:flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.type{
+  flex:3;
+  text-align:center;
+  background-color:#e7e3e3f1;
+}
