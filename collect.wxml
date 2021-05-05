@@ -1,0 +1,84 @@
+<view class="all">
+  <view class="bg">
+    <view class="head">
+    <view class="headIcon">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+     <view class="login">
+      <open-data type="userNickName"></open-data>
+    </view>
+    </view>
+  </view>
+</view>
+  <view wx:for="{{mycontent}}">
+    <modal id="{{index}}" hidden="{{hiddenmodalput}}" title="输入评论..." confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+        <input bindinput="getcomment" type='text'placeholder="请输入内容" auto-focus/>
+</modal> 
+    <view wx:if="{{item.img==''}}">
+      <view class="only_text">
+      <view class="left">
+        <image src="{{item.head}}"></image>
+      </view>
+      <view class="right">
+        <view class="user_name">{{item.name}}</view>
+        <view class="user_text">{{item.content}}</view>
+        <view class="bottom">
+        <view class="user_time">{{item.tucaoTime}}</view>
+        <view class="hr"></view>
+        <image wx:if="{{item.islike==0}}" src="/icons/zan.png" id="{{index}}" bindtap="zan"></image>
+        <image wx:else src="/icons/iszan.jpg" id="{{index}}" bindtap="del_zan"></image>
+        <view class="vol">({{item.likeVol}})</view>
+        <image src="/icons/comment.png" bindtap="modalinput"></image>
+        <image wx:if="{{item.isstore==0}}" src="/icons/star.jpg" id="{{index}}" bindtap="collect"></image>
+        <image wx:else src="/icons/star2.jpg" id="{{index}}" bindtap="del_collect"></image>
+        </view>
+        <view class="up" wx:if="{{item.likeList!=''}}">
+          <image src="/icons/zan2.jpg"></image>
+          <view class="up_name" wx:for-item="j" wx:for="{{item.likeList}}">{{j}}</view>
+        </view>
+        <view class="comment" wx:for-item="j" wx:for="{{item.commentList}}">
+          <view class="com_name">{{j.name}}:</view>
+          <view class="com_text">{{j.text}}</view>
+        </view>
+      </view>
+     </view>
+     <view class="line"></view>
+    </view>
+    <view wx:else>
+      <view class="only_text">
+      <view class="left">
+        <image src="{{item.head}}"></image>
+      </view>
+      <view class="right">
+        <view class="user_name">{{item.name}}</view>
+        <view class="user_text">{{item.content}}</view>
+        <view class="image_content">
+        <view class='image' wx:for-item="j" wx:for="{{item.img}}">
+        <image class="moment_img" src="{{j}}"></image>
+        </view>
+        </view>
+        <view class="bottom">
+        <view class="user_time">{{item.tucaoTime}}</view>
+        <view class="hr"></view>
+        <image wx:if="{{item.islike==0}}" src="/icons/zan.png" id="{{index}}" bindtap="zan"></image>
+        <image wx:else src="/icons/iszan.jpg" id="{{index}}" bindtap="del_zan"></image>
+        <view class="vol">({{item.likeVol}})</view>
+        <image src="/icons/comment.png" bindtap="modalinput"></image>
+        <image wx:if="{{item.isstore==0}}" src="/icons/star.jpg" id="{{index}}" bindtap="collect"></image>
+        <image wx:else src="/icons/star2.jpg" id="{{index}}" bindtap="del_collect"></image>
+        </view>
+        <view class="up" wx:if="{{item.likeList!=''}}">
+          <image src="/icons/zan2.jpg"></image>
+          <view class="up_name" wx:for-item="j" wx:for="{{item.likeList}}">{{j}}</view>
+        </view>
+        <view class="comment" wx:for-item="j" wx:for="{{item.commentList}}">
+          <view class="com_name">{{j.name}}:</view>
+          <view class="com_text">{{j.text}}</view>
+        </view>
+      </view>
+     </view>
+     <view class="line"></view>
+    </view>
+  </view>
+  
+
