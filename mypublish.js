@@ -1,80 +1,126 @@
 // pages/mypublish/mypublish.js
+var app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    content:[
-      {id:0,name:"美咲",pic_url:["/pic/lulu.jpg"],text:"呵呵",head:"/pic/naying.jpg",time:"2021-5-1",up:[],comment:[],is_up:0,is_clo:1},
-      {id:1,name:"美咲",pic_url:["/pic/jmq1.jpg","/pic/jmq2.jpg"],text:"男朋友新砖",head:"/pic/jmq3.jpg",time:"2021-5-1",up:["高泽宇"],comment:[],is_up:1,is_clo:1},
-      {id:2,name:"美咲",pic_url:[],text:"我好好看",head:"/pic/3.jpg",time:"2021-5-1",up:["童鑫康","冯泽","高泽宇"],comment:[{name:"高泽宇",text:"谢谢哥哥的赞美"},{name:"童鑫康",text:"你好恶心"}],is_up:1,is_clo:1},
-    ],
-    hiddenmodalput:true,
-
+    mycontent:[],
+    mycomment:'',
+     hiddenmodalput:true,
+     comment_id:0,
   },
-  modalinput:function(){
+  modalinput:function(e){
 		this.setData({
+      comment_id:e.target.id,
 		   hiddenmodalput: !this.data.hiddenmodalput
 		})
 	},
-	//取消按钮
 	cancel: function(){
-        this.setData({
-            hiddenmodalput: true
-        });
-    },
-    //确认
-    confirm: function(){
-        this.setData({
-	        hiddenmodalput: true
-	    })
-    },
-    zan:function(e){
-      this.data.content[e.target.id].up.push("高泽宇")
-      var temp_up='content['+e.target.id+'].is_up'
-      this.setData({
-        [temp_up]:1
-      })
+    this.setData({
+        hiddenmodalput: true
+    });
+},
+//确认
+confirm: function(){
+  
+    this.setData({
+      hiddenmodalput: true
+  })
+  wx.showLoading({
+    title: '请稍后',
+  })
+  wx.request({
+    url:'https://172.20.10.5:443/weixin/SendComment?num=' + this.data.mycontent[this.data.comment_id].num + "&" + "username=" + app.globalData.userInfo.nickName
+    + "&" + "text=" + this.data.mycomment,
+    data:{},
+    success:res=>{
+      this.onLoad()
+      wx.hideLoading()
+    }
+  })
+},
+getcomment:function(e){
+  this.setData({
+    mycomment:e.detail.value
+  })
+  
+  },
+  //点赞，更新数据，向数据库传数据
+  zan:function(e){
+    console.log(e.target.id)
+    wx.showLoading({
+      title: '请稍后',
+    })
+    wx.request({
+      url:'https://172.20.10.5:443/weixin/Like?num=' + this.data.mycontent[e.target.id].num + "&" + "username=" + app.globalData.userInfo.nickName
+      + "&" + "state=" + this.data.mycontent[e.target.id].islike,
+      data:{},
+      success:res=>{
+        this.onLoad()
+        wx.hideLoading()
+      }
+    })
+   
+  
+  },
+  //取消点赞，更新数据，向数据库传数据
+  del_zan:function(e){
+    wx.showLoading({
+      title: '请稍后',
+    })
+    wx.request({
+      url:'https://172.20.10.5:443/weixin/Like?num=' + this.data.mycontent[e.target.id].num + "&" + "username=" + app.globalData.userInfo.nickName
+      + "&" + "state=" + this.data.mycontent[e.target.id].islike,
+      data:{},
+      success:res=>{
+        this.onLoad()
+        wx.hideLoading()
+      }
+    })
     
-    },
-    //取消点赞，更新数据，向数据库传数据
-    del_zan:function(e){
-      var temp_up='content['+e.target.id+'].is_up'
-      var myindex=0
-      for (var i = 0; i < this.data.content[e.target.id].up.length; i++) { 
-        if (this.data.content[e.target.id].up[i] == e.target.id) {
-          myindex==i;
-           break; 
-          }
-        } 
-      this.data.content[e.target.id].up.splice(myindex, 1)
-      this.setData({
-        [temp_up]:0
-      })
-    },
-    //收藏，更新数据，向数据库传数据
-    collect:function(e){
-      var temp_clo='content['+e.target.id+'].is_clo'
-      this.setData({
-        [temp_clo]:1
-      })
-      wx.showToast({
-        title: "收藏成功",
-        duration: 1500
-      })
-    },
-    //取消收藏，，更新数据，向数据库传数据
-    del_collect:function(e){
-      var temp_clo='content['+e.target.id+'].is_clo'
-      this.setData({
-        [temp_clo]:0
-      })
-      wx.showToast({
-        title: "取消收藏成功",
-        duration: 1500
-      })
-    },
+  },
+  //收藏，更新数据，向数据库传数据
+  collect:function(e){
+    wx.showLoading({
+      title: '请稍后',
+    })
+    wx.request({
+      url:'https://172.20.10.5:443/weixin/Store?num=' + this.data.mycontent[e.target.id].num + "&" + "username=" + app.globalData.userInfo.nickName
+      + "&" + "state=" + this.data.mycontent[e.target.id].isstore,
+      data:{},
+      success:res=>{
+        this.onLoad()
+        wx.hideLoading()
+        wx.showToast({
+          title: "收藏成功",
+          duration: 1500
+        })
+      }
+    })
+   
+    
+  },
+  //取消收藏，，更新数据，向数据库传数据
+  del_collect:function(e){
+    wx.showLoading({
+      title: '请稍后',
+    })
+    wx.request({
+      url:'https://172.20.10.5:443/weixin/Store?num=' + this.data.mycontent[e.target.id].num + "&" + "username=" + app.globalData.userInfo.nickName
+      + "&" + "state=" + this.data.mycontent[e.target.id].isstore,
+      data:{},
+      success:res=>{
+        this.onLoad()
+        wx.hideLoading()
+        wx.showToast({
+          title: "取消收藏成功",
+          duration: 1500
+        })
+      }
+    })
+  },
     delete_cont:function(e){
       var that=this
       wx.showModal({
@@ -98,6 +144,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url:'https://172.20.10.5:443/weixin/SendRelease?username=' + app.globalData.userInfo.nickName,
+      data:{},
+      success:res=>{
+        this.setData({
+          mycontent:res.data
+        })
+      }
+    })
 
   },
 

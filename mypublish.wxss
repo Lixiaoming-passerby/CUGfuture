@@ -62,7 +62,7 @@
   flex-direction: row;
 }
 .hr{
-  width: 150px;
+  width: 60px;
 }
 .bottom image{
   margin-top:5px;
@@ -70,6 +70,11 @@
   margin-right: 5px;
   height:25px;
   width: 25px;
+}
+.vol{
+  margin-top:5px;
+  color:#e5f175e1;
+  font-size: 13;
 }
 .user_time{
   margin-left: 5px;
