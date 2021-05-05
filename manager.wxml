@@ -1,0 +1,3 @@
+<!--pages/manager/manager.wxml-->
+<view class="btn" bindtap="change">修改密码</view>
+<view class="btn" bindtap="logout">退出登陆</view>

@@ -1,0 +1,11 @@
+/* pages/manager/manager.wxss */
+.btn{
+  margin-top: 180px;
+  margin-left: 135px;
+  width:120px;
+  height:30px;
+  text-align: center;
+  justify-content: center;
+  align-items:center;
+  background-color: rgb(176, 229, 245);
+}
